@@ -1,0 +1,120 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+</head>
+
+
+
+
+
+
+<style>
+    /* style.css */
+    .header {
+        text-align: center;
+        color: rgb(252, 0, 0);
+        font-size: 2.5em;
+        padding: auto;
+    }
+
+    .bgimg {
+        height: auto;
+        width: 1255px;
+        position: relative;
+    }
+
+    #logoimg {
+        height: 77px;
+        width: auto;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .form-container {
+        position: absolute;
+        top: 87%;
+        left: 54%;
+        transform: translate(67%, -52%);
+        background-color: rgba(245, 245, 245, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+
+    }
+
+    .form-container input[type="text"] {
+        display: block;
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .form-container button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+
+
+
+
+
+<nav class="flex">
+    <nav class="navbar">
+        <h1 class="header">Zomato Rating Prediction</h1>
+        <img id="logoimg" src="https://i.pinimg.com/564x/1a/17/ed/1a17ed134ffeb3461f5d0f3ca0ee227d.jpg"
+            alt="zomatologo">
+        <img class="bgimg" src="https://images.pexels.com/photos/1660030/pexels-photo-1660030.jpeg"
+            alt="Strawberries and Sliced Bread">
+    </nav>
+
+    <body>
+        <div class="form-container">
+            <form id="form" action="{{ url_for('predict') }}" method="post">
+                <ul>
+                    <li>
+                        <input type="text" name="Online Order" placeholder="Order Online" required="required" />
+                    </li>
+                    <li>
+                        <input type="text" name="Book Table" placeholder="Book Table" required="required" />
+                    </li>
+                    <li>
+                        <input type="text" name="Votes" placeholder="Votes" required="required" />
+                    </li>
+                    <li>
+                        <input type="text" name="Location" placeholder="Location" required="required" />
+                    </li>
+                    <li>
+                        <input type="text" name="Restaurant Type" placeholder="Restaurant Type" required="required" />
+                    </li>
+                    <li>
+                        <input type="text" name="Cuisines" placeholder="Cuisines" required="required" />
+                    </li>
+                    <li>
+                        <input type="text" name="Cost" placeholder="Cost" required="required" />
+                    </li>
+                    <li>
+                        <input type="text" name="Menu Item" placeholder="Menu Item" required="required" />
+                    </li>
+                </ul>
+
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </form>
+            <br>
+            <br>
+            {{ prediction_text }}
+        </div>
+</nav>
+</body>
+
+</html>
